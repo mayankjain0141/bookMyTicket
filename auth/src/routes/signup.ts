@@ -14,12 +14,11 @@ router.post(
             .isLength({ min: 4, max: 30 })
             .withMessage("Password must be between 4 and 30 characters"),
     ],
-    (req: Request, res: Response) => {
+    async (req: Request, res: Response) => {
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
             throw new RequestValidationError(errors.array());
-            // error.reasons = errors.array();
         }
 
         console.log("Creating a user...");

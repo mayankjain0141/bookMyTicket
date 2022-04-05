@@ -2,3 +2,4 @@ notes/*
 auth/skaffold
 auth/node_modules
 notes
+.VSCodeCounter

@@ -12,12 +12,12 @@ import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 
 const app = express();
-app.set('trust proxy',true);
+app.set("trust proxy", true);
 app.use(json());
 app.use(
     cookieSession({
-        signed:false,  // disable encryption
-        secure:true    // HTTPS connections only
+        signed: false, // disable encryption
+        secure: true, // HTTPS connections only
     })
 );
 
@@ -33,14 +33,13 @@ app.all("*", async (req, res) => {
 });
 
 const start = async () => {
-    if(!process.env.JWT_KEY){
-        throw new Error('JWT_KEY must be defined');
+    if (!process.env.JWT_KEY) {
+        throw new Error("JWT_KEY must be defined");
     }
-    try{
+    try {
         await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
         console.log("connected to mongodb");
-        
-    }catch(err){
+    } catch (err) {
         console.error(err);
     }
 };

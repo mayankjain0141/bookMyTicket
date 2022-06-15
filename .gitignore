@@ -2,6 +2,7 @@ notes/*
 auth/skaffold
 auth/node_modules
 client/node_modules
+tickets/node_modules
 client/.next
 notes
 .VSCodeCounter
